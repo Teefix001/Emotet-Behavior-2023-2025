@@ -1,0 +1,136 @@
+{
+    "type": "bundle",
+    "id": "bundle--5628be30-07af-46d2-ad6a-c001b2ead959",
+    "objects": [
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--5c1610cc-e0df-4711-97f2-86d0ba4d8636",
+            "created": "2025-06-04T14:49:50.885382Z",
+            "modified": "2025-06-04T14:49:50.885382Z",
+            "name": "Emotet v1 Indicator",
+            "description": "Behavioral indicator for Emotet version 1 based on 4 criteria.",
+            "pattern": "[process:command_line MATCHES '.*C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp.*'] AND [process:signed = false] AND [registry:key = 'HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Internet Settings'] AND [registry:modified = true]",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-04T14:49:50.885382Z",
+            "labels": [
+                "malicious-activity"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--3ce9e872-3e2c-423e-9497-40ac97f819c9",
+            "created": "2025-06-04T14:49:50.885382Z",
+            "modified": "2025-06-04T14:49:50.885382Z",
+            "name": "Emotet v2 Indicator",
+            "description": "Behavioral indicator for Emotet version 2 based on 4 criteria.",
+            "pattern": "[process:command_line MATCHES '.*C:\\\\Users\\\\user\\\\AppData\\\\Roaming\\\\System.*'] AND [process:signed = false] AND [registry:key = 'HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Internet Settings'] AND [registry:modified = true]",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-04T14:49:50.885382Z",
+            "labels": [
+                "malicious-activity"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--8aeb6ec9-d205-43f3-9e42-525fddcf1872",
+            "created": "2025-06-04T14:49:50.885382Z",
+            "modified": "2025-06-04T14:49:50.885382Z",
+            "name": "Emotet v3 Indicator",
+            "description": "Behavioral indicator for Emotet version 3 based on 4 criteria.",
+            "pattern": "[process:command_line MATCHES '.*C:\\\\Users\\\\user\\\\AppData\\\\LocalLow\\\\Temp.*'] AND [process:signed = false] AND [registry:key = 'HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Internet Settings'] AND [registry:modified = true]",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-04T14:49:50.885382Z",
+            "labels": [
+                "malicious-activity"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--3555c3f6-d07b-40fb-853b-5fb2b875702c",
+            "created": "2025-06-09T06:07:16.724757Z",
+            "modified": "2025-06-09T06:07:16.724757Z",
+            "name": "Emotet Registry Manipulation - CachePrefix",
+            "description": "Emotet modifying CachePrefix in Internet Settings to values like Visited, Cookie, and empty string.",
+            "pattern": "[registry:key MATCHES '.*CachePrefix'] AND ([registry:data MATCHES 'Visited:' OR registry:data MATCHES 'Cookie:' OR registry:data = ''])",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-09T06:07:16.724757Z",
+            "labels": [
+                "malicious-activity",
+                "registry-modification",
+                "emotet"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--87dffaab-30d6-42a6-9573-90bb16b08b15",
+            "created": "2025-06-09T06:16:25.891565Z",
+            "modified": "2025-06-09T06:16:25.891565Z",
+            "name": "Emotet Version 1 - C2 IP Communication",
+            "description": "Observed outbound IP connections by Emotet Version 1",
+            "pattern": "[ipv4-addr:value = '51.38.124.206']",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-09T06:16:25.891565Z",
+            "labels": [
+                "malicious-activity",
+                "emotet",
+                "network-traffic"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--a1a81b1f-36f8-4062-877f-81a3559825d1",
+            "created": "2025-06-09T06:16:25.891565Z",
+            "modified": "2025-06-09T06:16:25.891565Z",
+            "name": "Emotet Version 2 - C2 IP Communication",
+            "description": "Observed outbound IP connections by Emotet Version 2",
+            "pattern": "[ipv4-addr:value = '197.221.158.162'] OR [ipv4-addr:value = '178.33.167.120'] OR [ipv4-addr:value = '168.0.97.6']",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-09T06:16:25.891565Z",
+            "labels": [
+                "malicious-activity",
+                "emotet",
+                "network-traffic"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--f0389154-953b-4327-9bec-6e20df58e02d",
+            "created": "2025-06-09T06:16:25.891565Z",
+            "modified": "2025-06-09T06:16:25.891565Z",
+            "name": "Emotet Version 3 - C2 IP Communication",
+            "description": "Observed outbound IP connections by Emotet Version 3",
+            "pattern": "[ipv4-addr:value = '91.121.54.71']",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-09T06:16:25.891565Z",
+            "labels": [
+                "malicious-activity",
+                "emotet",
+                "network-traffic"
+            ]
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--9612215f-7434-42f6-b9bc-6d95322b0bac",
+            "created": "2025-06-09T14:17:29.250948Z",
+            "modified": "2025-06-09T14:26:04.527389Z",
+            "name": "Emotet Registry Setting Frequency - Internet Settings",
+            "description": "Detects Emotet behavior where it sets values in HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings multiple times in a short time window, indicating automated registry manipulation.",
+            "pattern": "[registry:key = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings'] REPEATS >= 3 ",
+            "pattern_type": "stix",
+            "valid_from": "2025-06-09T14:17:29.250948Z",
+            "labels": [
+                "malicious-activity",
+                "registry-frequency",
+                "emotet"
+            ]
+        }
+    ]
+}
